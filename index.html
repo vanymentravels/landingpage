@@ -67,8 +67,8 @@
             <div class="relative inline-block mb-6">
                 <div class="absolute inset-0 scale-110 border border-sand/30 rounded-full animate-pulse"></div>
                 <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg relative z-10 bg-sand/20 flex items-center justify-center">
-                    <!-- Profilbild mit Fallback-Logik -->
-                    <img src="image_0.png.jpg?v=2" 
+                    <!-- Profilbild mit Cache Buster für schnelles Update -->
+                    <img src="image_0.png.jpg?v=3" 
                          id="profile-image"
                          alt="Vanessa & Aymen" 
                          onerror="this.src='image_0.jpg'; this.onerror=null;">
@@ -101,8 +101,8 @@
 
         <!-- Navigationslinks -->
         <nav class="space-y-4 mb-16 animate-slide-up">
-            <!-- Portfolio Link - Vereinfacht auf portfolio.pdf -->
-            <a href="portfolio.pdf" target="_blank" class="btn-hover flex items-center p-5 rounded-3xl bg-white/60 border border-white/80 group shadow-sm">
+            <!-- Portfolio Link - Pointing to the .zip file uploaded to GitHub -->
+            <a href="./portfolio.jpg.zip" target="_blank" class="btn-hover flex items-center p-5 rounded-3xl bg-white/60 border border-white/80 group shadow-sm">
                 <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 text-primary mr-4 group-hover:scale-110 transition-transform">
                     <i class="fas fa-briefcase text-xl"></i>
                 </div>
