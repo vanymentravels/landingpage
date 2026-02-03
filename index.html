@@ -72,6 +72,7 @@
 </head>
 <body class="min-h-screen flex flex-col items-center lang-en">
 
+    <!-- Language Switcher -->
     <div class="fixed top-6 right-6 z-50 animate-fade-in">
         <div class="glass flex rounded-full p-1 overflow-hidden border border-sand/30">
             <button onclick="setLanguage('en')" id="btn-en" class="px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all bg-dark-green text-cream">EN</button>
@@ -81,15 +82,16 @@
 
     <div class="max-w-2xl w-full px-6 py-16 animate-fade-in">
         
+        <!-- Header -->
         <header class="text-center mb-12">
             <div class="relative inline-block mb-6">
                 <div class="absolute inset-0 scale-110 border border-sand/30 rounded-full animate-pulse"></div>
                 <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg relative z-10 bg-sand/20 flex items-center justify-center">
-                    <!-- Bildquelle auf image_0.png.jpg gesetzt mit Fallback auf image_0.jpg -->
+                    <!-- Dateiname auf Kleinschreibung image_0.png.jpg fixiert -->
                     <img src="image_0.png.jpg" 
                          alt="Vanessa & Aymen" 
                          class="w-full h-full object-cover block" 
-                         onerror="this.onerror=null; this.src='image_0.jpg';">
+                         onerror="this.onerror=null; this.src='./image_0.png.jpg';">
                 </div>
             </div>
             
@@ -100,6 +102,7 @@
             </p>
         </header>
 
+        <!-- Bio Section -->
         <section class="glass p-8 md:p-10 rounded-[2.5rem] mb-12 luxury-shadow animate-slide-up" style="animation-delay: 0.2s">
             <div class="flex items-center justify-between mb-8">
                 <span class="bg-dark-green text-cream px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-bold">
@@ -127,6 +130,7 @@
             </div>
         </section>
 
+        <!-- Main Navigation Links -->
         <nav class="space-y-4 mb-16 animate-slide-up" style="animation-delay: 0.3s">
             <a href="#" class="btn-hover flex items-center p-5 rounded-3xl bg-white/60 border border-white/80 group shadow-sm">
                 <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 text-primary mr-4 group-hover:scale-110 transition-transform">
@@ -167,6 +171,7 @@
             </a>
         </nav>
 
+        <!-- Video Content (Reels) -->
         <section class="mb-16 animate-slide-up" style="animation-delay: 0.4s">
             <h3 class="text-[11px] uppercase tracking-[0.3em] font-black text-primary/60 mb-6 text-center text-balance px-4">
                 <span data-lang="en">Explore Our Storytelling Reels</span>
@@ -174,44 +179,49 @@
             </h3>
             <div class="grid grid-cols-2 gap-4">
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-dark-green/30 group-hover:bg-dark-green/50 transition-all flex flex-col items-center justify-center p-4 text-center">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
+                    <div class="absolute inset-0 bg-dark-green/30 group-hover:bg-dark-green/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-cream text-2xl">Rome</h4>
-                        <p class="text-[10px] text-cream/70 uppercase tracking-widest mt-1 italic">Engagement</p>
+                        <h4 class="heading text-2xl">Rome</h4>
+                        <p class="text-[10px] uppercase tracking-widest mt-1 italic">Engagement</p>
                     </div>
                 </div>
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-earth/30 group-hover:bg-earth/50 transition-all flex flex-col items-center justify-center p-4 text-center">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
+                    <div class="absolute inset-0 bg-earth/30 group-hover:bg-earth/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-cream text-2xl">Morocco</h4>
-                        <p class="text-[10px] text-cream/70 uppercase tracking-widest mt-1 italic">Heritage</p>
+                        <h4 class="heading text-2xl">Morocco</h4>
+                        <p class="text-[10px] uppercase tracking-widest mt-1 italic">Heritage</p>
                     </div>
                 </div>
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-primary/30 group-hover:bg-primary/50 transition-all flex flex-col items-center justify-center p-4 text-center">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
+                    <div class="absolute inset-0 bg-primary/30 group-hover:bg-primary/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-cream text-2xl">Croatia</h4>
-                        <p class="text-[10px] text-cream/70 uppercase tracking-widest mt-1 italic">Adriatic</p>
+                        <h4 class="heading text-2xl">Croatia</h4>
+                        <p class="text-[10px] uppercase tracking-widest mt-1 italic">Adriatic</p>
                     </div>
                 </div>
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-sand/30 group-hover:bg-sand/50 transition-all flex flex-col items-center justify-center p-4 text-center">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
+                    <div class="absolute inset-0 bg-sand/30 group-hover:bg-sand/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-cream text-2xl text-dark-green">Thailand</h4>
-                        <p class="text-[10px] text-dark-green/70 uppercase tracking-widest mt-1 italic">Paradise</p>
+                        <h4 class="heading text-2xl">Thailand</h4>
+                        <p class="text-[10px] uppercase tracking-widest mt-1 italic text-dark-green">Paradise</p>
                     </div>
                 </div>
             </div>
+            <p class="text-center text-[10px] text-primary/60 mt-6 italic px-4 text-balance">
+                <span data-lang="en">Click on a reel to witness our production quality.</span>
+                <span data-lang="de">Klicken Sie auf ein Video, um unsere Qualität zu erleben.</span>
+            </p>
         </section>
 
+        <!-- Good Deals Section -->
         <section class="glass p-8 rounded-[3.5rem] mb-12 luxury-shadow animate-slide-up" style="animation-delay: 0.5s">
             <h3 class="text-[11px] uppercase tracking-[0.3em] font-black text-primary/60 mb-8 border-b border-primary/10 pb-2 text-center text-balance">
                 <span data-lang="en">Good Deals & Past Works</span>
@@ -232,6 +242,7 @@
                         <span data-lang="de">Entdecken Sie spezielle Partner-Raten für erstklassige Hotel-Erlebnisse.</span>
                     </p>
                 </div>
+
                 <div class="bg-white/50 p-6 rounded-[2.5rem] border border-white/60 hover:bg-white/80 transition-all group cursor-pointer shadow-sm">
                     <h4 class="font-bold text-dark-green text-lg mb-3 tracking-tight">
                         <span data-lang="en">Our Creative Projects</span>
@@ -245,6 +256,7 @@
             </div>
         </section>
 
+        <!-- Gear Arsenal -->
         <section class="glass p-8 rounded-[3rem] mb-12 luxury-shadow animate-slide-up" style="animation-delay: 0.6s">
             <h3 class="text-[11px] uppercase tracking-[0.3em] font-black text-primary/60 mb-6 border-b border-primary/10 pb-2 text-center">
                 <span data-lang="en">Technical Arsenal</span>
@@ -270,6 +282,7 @@
             </div>
         </section>
 
+        <!-- Footer -->
         <footer class="mt-20 text-center opacity-40">
             <p class="text-[10px] uppercase tracking-[0.4em] mb-4">&copy; 2026 Vanymentravels</p>
             <div class="flex justify-center space-x-6 text-sm text-dark-green">
