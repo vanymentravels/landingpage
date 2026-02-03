@@ -68,6 +68,9 @@
         body.lang-en span[data-lang="en"] { display: inline; }
         body.lang-de [data-lang="de"] { display: block; }
         body.lang-de span[data-lang="de"] { display: inline; }
+        
+        /* Fix for broken image text showing inside the circle */
+        img { color: transparent; text-indent: -9999px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center lang-en">
@@ -87,11 +90,11 @@
             <div class="relative inline-block mb-6">
                 <div class="absolute inset-0 scale-110 border border-sand/30 rounded-full animate-pulse"></div>
                 <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg relative z-10 bg-sand/20 flex items-center justify-center">
-                    <!-- Dateiname auf Kleinschreibung image_0.png.jpg fixiert -->
-                    <img src="image_0.png.jpg" 
+                    <!-- Robust Image Loading Logic -->
+                    <img src="image_0.jpg" 
                          alt="Vanessa & Aymen" 
                          class="w-full h-full object-cover block" 
-                         onerror="this.onerror=null; this.src='./image_0.png.jpg';">
+                         onerror="if (this.src.indexOf('image_0.jpg') !== -1) { this.src='image_0.png.jpg'; }">
                 </div>
             </div>
             
@@ -210,7 +213,7 @@
                         <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-2xl">Thailand</h4>
+                        <h4 class="heading text-cream text-2xl">Thailand</h4>
                         <p class="text-[10px] uppercase tracking-widest mt-1 italic text-dark-green">Paradise</p>
                     </div>
                 </div>
