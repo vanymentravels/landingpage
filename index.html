@@ -69,8 +69,8 @@
         body.lang-de [data-lang="de"] { display: block; }
         body.lang-de span[data-lang="de"] { display: inline; }
         
-        /* Fix for broken image text showing inside the circle */
-        img { color: transparent; text-indent: -9999px; }
+        /* Ensures the circle stays clean while loading or if broken */
+        #profile-image { color: transparent; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center lang-en">
@@ -90,11 +90,18 @@
             <div class="relative inline-block mb-6">
                 <div class="absolute inset-0 scale-110 border border-sand/30 rounded-full animate-pulse"></div>
                 <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg relative z-10 bg-sand/20 flex items-center justify-center">
-                    <!-- Robust Image Loading Logic -->
-                    <img src="image_0.jpg" 
+                    <!-- Targeted fixed filename to match your GitHub upload exactly -->
+                    <img src="image_0.png.jpg" 
+                         id="profile-image"
                          alt="Vanessa & Aymen" 
                          class="w-full h-full object-cover block" 
-                         onerror="if (this.src.indexOf('image_0.jpg') !== -1) { this.src='image_0.png.jpg'; }">
+                         onerror="handleImageError(this)">
+                    
+                    <!-- Fallback content if image fails -->
+                    <div id="fallback-content" class="hidden flex-col items-center justify-center text-center p-4">
+                        <i class="fas fa-camera-retro text-2xl text-dark-green/20 mb-1"></i>
+                        <span class="text-[8px] font-black uppercase tracking-tighter text-dark-green/40">Vanymentravels</span>
+                    </div>
                 </div>
             </div>
             
@@ -133,7 +140,7 @@
             </div>
         </section>
 
-        <!-- Main Navigation Links -->
+        <!-- Main Navigation Links (Social & Contact) -->
         <nav class="space-y-4 mb-16 animate-slide-up" style="animation-delay: 0.3s">
             <a href="#" class="btn-hover flex items-center p-5 rounded-3xl bg-white/60 border border-white/80 group shadow-sm">
                 <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 text-primary mr-4 group-hover:scale-110 transition-transform">
@@ -158,6 +165,7 @@
                 <span class="flex-1 text-left font-semibold italic tracking-tight">info@vanymentravels.com</span>
             </a>
 
+            <!-- WhatsApp Call to Action -->
             <a href="https://wa.me/491738559845" class="btn-hover flex items-center p-6 rounded-[2.5rem] bg-dark-green text-cream shadow-2xl relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 mr-4">
@@ -181,40 +189,44 @@
                 <span data-lang="de">Unsere Video-Inhalte</span>
             </h3>
             <div class="grid grid-cols-2 gap-4">
+                <!-- Rome -->
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-dark-green/30 group-hover:bg-dark-green/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-dark-green/30 group-hover:bg-dark-green/50 transition-all flex flex-col items-center justify-center p-4 text-center">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-2xl">Rome</h4>
-                        <p class="text-[10px] uppercase tracking-widest mt-1 italic">Engagement</p>
+                        <h4 class="heading text-cream text-2xl">Rome</h4>
+                        <p class="text-[10px] text-cream/70 uppercase tracking-widest mt-1 italic">Engagement</p>
                     </div>
                 </div>
+                <!-- Morocco -->
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-earth/30 group-hover:bg-earth/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-earth/30 group-hover:bg-earth/50 transition-all flex flex-col items-center justify-center p-4 text-center">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-2xl">Morocco</h4>
-                        <p class="text-[10px] uppercase tracking-widest mt-1 italic">Heritage</p>
+                        <h4 class="heading text-cream text-2xl">Morocco</h4>
+                        <p class="text-[10px] text-cream/70 uppercase tracking-widest mt-1 italic">Heritage</p>
                     </div>
                 </div>
+                <!-- Croatia -->
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-primary/30 group-hover:bg-primary/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-primary/30 group-hover:bg-primary/50 transition-all flex flex-col items-center justify-center p-4 text-center">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-2xl">Croatia</h4>
-                        <p class="text-[10px] uppercase tracking-widest mt-1 italic">Adriatic</p>
+                        <h4 class="heading text-cream text-2xl">Croatia</h4>
+                        <p class="text-[10px] text-cream/70 uppercase tracking-widest mt-1 italic">Adriatic</p>
                     </div>
                 </div>
+                <!-- Thailand -->
                 <div class="glass overflow-hidden rounded-[2.5rem] luxury-shadow group relative aspect-[9/16] bg-slate-200">
-                    <div class="absolute inset-0 bg-sand/30 group-hover:bg-sand/50 transition-all flex flex-col items-center justify-center p-4 text-center text-cream">
-                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm">
+                    <div class="absolute inset-0 bg-sand/30 group-hover:bg-sand/50 transition-all flex flex-col items-center justify-center p-4 text-center">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 group-hover:scale-125 transition-transform backdrop-blur-sm text-cream">
                             <i class="fas fa-play text-xl"></i>
                         </div>
-                        <h4 class="heading text-cream text-2xl">Thailand</h4>
-                        <p class="text-[10px] uppercase tracking-widest mt-1 italic text-dark-green">Paradise</p>
+                        <h4 class="heading text-cream text-2xl text-dark-green">Thailand</h4>
+                        <p class="text-[10px] text-dark-green/70 uppercase tracking-widest mt-1 italic">Paradise</p>
                     </div>
                 </div>
             </div>
@@ -232,6 +244,7 @@
             </h3>
             
             <div class="grid grid-cols-1 gap-6">
+                <!-- Deal Card -->
                 <div class="bg-white/50 p-6 rounded-[2.5rem] border border-white/60 hover:bg-white/80 transition-all group cursor-pointer shadow-sm">
                     <div class="flex justify-between items-start mb-3">
                         <h4 class="font-bold text-dark-green text-lg tracking-tight">
@@ -246,6 +259,7 @@
                     </p>
                 </div>
 
+                <!-- Past Work Card -->
                 <div class="bg-white/50 p-6 rounded-[2.5rem] border border-white/60 hover:bg-white/80 transition-all group cursor-pointer shadow-sm">
                     <h4 class="font-bold text-dark-green text-lg mb-3 tracking-tight">
                         <span data-lang="en">Our Creative Projects</span>
@@ -316,6 +330,22 @@
                 btnEn.classList.remove('text-dark-green', 'hover:bg-white/30');
                 btnDe.classList.remove('bg-dark-green', 'text-cream');
                 btnDe.classList.add('text-dark-green', 'hover:bg-white/30');
+            }
+        }
+
+        // Logic to try different extensions if the first one fails
+        function handleImageError(img) {
+            const currentSrc = img.src;
+            if (currentSrc.includes('image_0.png.jpg')) {
+                img.src = 'image_0.jpg';
+            } else if (currentSrc.includes('image_0.jpg')) {
+                img.src = 'image_0.png';
+            } else {
+                // If all files fail, hide image and show the text fallback
+                img.style.display = 'none';
+                const fallback = document.getElementById('fallback-content');
+                fallback.classList.remove('hidden');
+                fallback.classList.add('flex');
             }
         }
     </script>
